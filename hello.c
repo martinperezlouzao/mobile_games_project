@@ -4,5 +4,5 @@ int a=2;
 
 int main(){
     printf("Hello, %d!", a);
-    return 1;
+    return 2;
 }
