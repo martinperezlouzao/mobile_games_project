@@ -7,4 +7,5 @@ int main(){
     return 2;
     printf("Hello");
     printf("Welcome porrinhudo");
+    printf("Buenas");
 }
