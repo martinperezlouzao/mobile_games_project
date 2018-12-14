@@ -5,5 +5,6 @@ int a=2;
 int main(){
     printf("Hello, %d!", a);
     return 2;
-    printf("Hola");
+    printf("Hello");
+    printf("Welcome porrinhudo");
 }
