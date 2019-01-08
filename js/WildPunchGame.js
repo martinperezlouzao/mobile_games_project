@@ -187,7 +187,7 @@ class WildPunchGame extends CanvasGame
                 }
 				sound = 1;
 				seguir = 0;
-                objects[WIN_MESSAGE] = new StaticText("VAMPIRE WON!", 0, canvas.width/2, "Comic Sans", canvas.width/8, "red");
+                objects[WIN_MESSAGE] = new StaticText("VAMPIRE WON!", 0, canvas.width/8, "Comic Sans", canvas.width/8, "red");
                 objects[WIN_MESSAGE].start(); 
             }
 			
@@ -200,7 +200,7 @@ class WildPunchGame extends CanvasGame
                 }
 				sound = 1;
 				seguir = 0;
-                objects[WIN_MESSAGE] = new StaticText("ALIEN WON!", 0, canvas.width/2, "Comic Sans", canvas.width/8, "red");
+                objects[WIN_MESSAGE] = new StaticText("ALIEN WON!", 0, canvas.width/8, "Comic Sans", canvas.width/8, "red");
                 objects[WIN_MESSAGE].start(); 
             }
 			

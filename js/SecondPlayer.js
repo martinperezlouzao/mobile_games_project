@@ -13,7 +13,7 @@ class SecondPlayer extends Player
         this.centreX = centreX; 
         this.centreY = centreY;
 
-        this.PLAYER_SPEED = 12; 
+        //this.PLAYER_SPEED = 12; 
 		
 		this.jumpNumber = 3;
     }

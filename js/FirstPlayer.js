@@ -14,7 +14,7 @@ class FirstPlayer extends Player
         this.centreX = centreX; 
         this.centreY = centreY;
 		
-        this.PLAYER_SPEED = 8; 
+        //this.PLAYER_SPEED = 8; 
 
     }
 }

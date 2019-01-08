@@ -3,6 +3,8 @@
 // Limpiar proyecto
 // Online
 
+var interval;
+
 let imageFirstPlayer = new Image();
 let imageSecondPlayer = new Image();
 imageFirstPlayer.src = "images/man1.png";
@@ -33,6 +35,11 @@ const TEXT2 = 7;
 const ground = 340;
 const score = 0;
 
+let rightPressed = false;
+let leftPressed = false;
+let rightPressed2 = false;
+let leftPressed2 = false
+
 function playGame()
 {
 	objects[BACKGROUND] = new StaticImage(background, 0, 0, canvas.width, canvas.height);
@@ -42,26 +49,23 @@ function playGame()
 
     let game = new WildPunchGame(walls);
 
-    game.start();
-
+	game.start();
 	
-	document.getElementById("left").addEventListener("click", function(){   //left
+	function left(){
 		if(objects[FIRSTPLAYER].getPunched() == 0){
 			objects[FIRSTPLAYER].setX(-objects[FIRSTPLAYER].PLAYER_SPEED);
 			objects[FIRSTPLAYER].setDirection(LEFT);
 		}
-        
-    });
+	}
 
-	document.getElementById("right").addEventListener("click", function(){   //right
+	function right(){
 		if(objects[FIRSTPLAYER].getPunched() == 0){
 			objects[FIRSTPLAYER].setX(objects[FIRSTPLAYER].PLAYER_SPEED);
 			objects[FIRSTPLAYER].setDirection(RIGHT);
 		}
-        
-    });
+	}
 
-	document.getElementById("jump").addEventListener("click", function(){   //jump
+	function jump(){
 		if(objects[FIRSTPLAYER].getPunched() == 0){
 			if(objects[FIRSTPLAYER].getJumps() < objects[FIRSTPLAYER].getJumpNumber()){
 				objects[FIRSTPLAYER].setY(-40);
@@ -73,21 +77,114 @@ function playGame()
 				sound=3;
 			}
 		}
-        
-    });
+	}
 
-	document.getElementById("punch").addEventListener("click", function(){   //punch
+	function punch(){
 		if(objects[FIRSTPLAYER].getPunched() == 0){
 			objects[FIRSTPLAYER].punch();
 		}
-        
+	}
+
+
+	document.getElementById("jump").addEventListener("click", function(){   //jump
+		jump();        
     });
+
+	document.getElementById("punch").addEventListener("click", function(){   //punch
+		punch();        
+	});
+
+
+
+
+
+	// KEYBOARD
+	document.addEventListener('keydown', keyDownHandler, false);
+	document.addEventListener('keyup', keyUpHandler, false);
+	function keyDownHandler(e) {
+		if(e.keyCode == 39) {
+			rightPressed = true;
+		}
+		else if(e.keyCode == 37) {
+			leftPressed = true;
+		}
+	}
+	function keyUpHandler(e) {
+		if(e.keyCode == 39) {
+			rightPressed = false;
+		}
+		else if(e.keyCode == 37) {
+			leftPressed = false;
+		}
+	}
+	
+	document.addEventListener('keydown', keyDownHandler2, false);
+	document.addEventListener('keyup', keyUpHandler2, false);
+	function keyDownHandler2(e2) {
+		if(e2.keyCode == 65) {
+			leftPressed2 = true;
+		}
+		else if(e2.keyCode == 68) {
+			rightPressed2 = true;
+		}
+	}
+	function keyUpHandler2(e2) {
+		if(e2.keyCode == 65) {
+			leftPressed2 = false;
+		}
+		else if(e2.keyCode == 68) {
+			rightPressed2 = false;
+		}
+	}
+	
+	document.getElementById("left").addEventListener('touchstart', keyDownHandlerL, false);   //left
+    document.getElementById("left").addEventListener('touchend', keyUpHandlerL, false);
+	function keyDownHandlerL(e) {
+		if(e.touches) {
+			leftPressed = true;
+		}
+	}
+	function keyUpHandlerL(e) {
+		if(e.touches) {
+			leftPressed = false;
+		}
+	}
+	
+	document.getElementById("right").addEventListener('touchstart', keyDownHandlerR, false);   //right
+    document.getElementById("right").addEventListener('touchend', keyUpHandlerR, false);
+	function keyDownHandlerR(e) {
+		if(e.touches) {
+			rightPressed = true;
+		}
+	}
+	function keyUpHandlerR(e) {
+		if(e.touches) {
+			rightPressed = false;
+		}
+	}
+
+
+
+	
 	
 	
     document.addEventListener('keydown', function (e)
     {	
+		if (e.keyCode === 37){  // left
+			left();
+		}else if (e.keyCode === 38){ // space
+			jump();
+		}else if (e.keyCode === 39){ // right
+			right();
+		} else if (e.keyCode === 40){ // right
+			objects[FIRSTPLAYER].setDirection(DOWN);
+		}else if(e.keyCode === 79){ //hold
+			objects[FIRSTPLAYER].hold();
+		}else if(e.keyCode === 80){ //punch
+			punch();
+		}
 		//PLAYER 1
-		if(objects[FIRSTPLAYER].getPunched() == 0){
+		/*if(objects[FIRSTPLAYER].getPunched() == 0){
 			if (e.keyCode === 37){  // left
 				objects[FIRSTPLAYER].setX(-objects[FIRSTPLAYER].PLAYER_SPEED);
 				objects[FIRSTPLAYER].setDirection(LEFT);
@@ -111,7 +208,7 @@ function playGame()
 			}else if(e.keyCode === 80){ //punch
 				objects[FIRSTPLAYER].punch();
 			}
-		}
+		}*/
 
 		// PLAYER 2
 		

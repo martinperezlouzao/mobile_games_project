@@ -125,7 +125,7 @@ class Player extends GameObject
 	
 	beingPunched(n){
 		this.punched=1;
-		this.life++;
+		this.life += 0.2;
 		sound = 2;
 		if(n==1){
 			//this.setX(100);
@@ -142,7 +142,7 @@ class Player extends GameObject
 	}
 	beingPunched2(n){
 		this.punched=1;
-		this.life++;
+		this.life += 0.2;
 		sound = 2;
 		if(n==1){
 			//this.setX(100);

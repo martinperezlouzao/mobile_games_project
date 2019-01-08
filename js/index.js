@@ -34,13 +34,13 @@ function drawLifeP1() {
 	var med = canvas.width/35;
     ctx.font = med + "px Arial";
     ctx.fillStyle = "#FFB900";
-    ctx.fillText("PLAYER 1: "+ objects[FIRSTPLAYER].getLife() +"%" + " " + objects[FIRSTPLAYER].getCentreX() + " " + objects[FIRSTPLAYER].getCentreY(), 20, canvas.height/15);
+    ctx.fillText("PLAYER 1: "+ parseFloat(Math.round(objects[FIRSTPLAYER].getLife() * 100) / 100).toFixed(1) +"%" , 20, canvas.height/15);
 }
 
 function drawLifeP2() {
     var med = canvas.width/25;
     ctx.font = med + "px Arial";
     ctx.fillStyle = "#FFB900";
-    ctx.fillText("PLAYER 2: "+ objects[SECONDPLAYER].getLife() +"%", canvas.width - (canvas.width/3.3), canvas.height/15);
+    ctx.fillText("PLAYER 2: "+ parseFloat(Math.round(objects[SECONDPLAYER].getLife() * 100) / 100).toFixed(1) +"%", canvas.width - (canvas.width/3.3), canvas.height/15);
 }
 

@@ -22,8 +22,10 @@ class CanvasGame
         this.collisionDetection();
         this.render();
 
-		//drawLifeP1();
-		//drawLifeP2();
+		drawLifeP1();
+		drawLifeP2();
+
+		move();
 		
 			
         requestAnimationFrame(this.playGameLoop.bind(this));
@@ -65,7 +67,9 @@ class CanvasGame
 			sound = 0;
 		}
 		
-    }
+	}
+	
+	
 
     render()
     {
@@ -88,4 +92,24 @@ class CanvasGame
     collisionDetection()
     {
     }
+}
+
+function move(){
+	if(rightPressed) {
+		objects[FIRSTPLAYER].setX(objects[FIRSTPLAYER].PLAYER_SPEED);
+		objects[FIRSTPLAYER].setDirection(RIGHT);
+	}
+	else if(leftPressed) {
+		objects[FIRSTPLAYER].setX(-objects[FIRSTPLAYER].PLAYER_SPEED);
+		objects[FIRSTPLAYER].setDirection(LEFT);
+	}
+	
+	if(rightPressed2) {
+		objects[SECONDPLAYER].setX(objects[SECONDPLAYER].PLAYER_SPEED);
+		objects[SECONDPLAYER].setDirection(RIGHT);
+	}
+	else if(leftPressed2) {
+		objects[SECONDPLAYER].setX(-objects[SECONDPLAYER].PLAYER_SPEED);
+		objects[SECONDPLAYER].setDirection(LEFT);
+	}
 }
