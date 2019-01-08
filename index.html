@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>WILD PUNCH!</title>
+        <link rel="shortcut icon" type="image/png" href="images/icon.png"/>
+		<link href="css/index.css" rel="stylesheet" type="text/css"/>
+		<script src="js/CanvasGame.js" type="text/javascript"></script>
+		<script src="js/GameObject.js" type="text/javascript"></script>
+		<script src="js/index.js" type="text/javascript"></script>
+        <script src="js/wildPunch.js" type="text/javascript"></script>
+        <script src="js/WildPunchGame.js" type="text/javascript"></script>
+        <script src="js/StaticImage.js" type="text/javascript"></script>
+        <script src="js/Player.js" type="text/javascript"></script>
+        <script src="js/FirstPlayer.js" type="text/javascript"></script>
+		<script src="js/SecondPlayer.js" type="text/javascript"></script>
+        <script src="js/StaticText.js" type="text/javascript"></script>
+		<script src="js/audio.js" type="text/javascript"></script>
+		<audio src="audio/cancionjuego.mp3" autoplay="true" Loop="true"></audio>
+    </head>
+
+    <body onload="myFunction()">
+        <div id="gameContainer">
+			<canvas id="gameCanvas" tabindex="1"></canvas>
+			<div id="buttons">
+				<button id = "left">L</button>
+				<button id = "right">R</button>
+				<button id = "jump">J</button>
+				<button id = "punch">P</button>
+			</div>
+        </div>
+		
+		<div id="loadBackground"></div>
+		<div id="loader"></div>
+
+		<script>
+			var myVar;
+
+			function myFunction() {
+			  myVar = setTimeout(showPage, 2000);
+			}
+
+			function showPage() {
+			  document.getElementById("loader").style.display = "none";
+			  document.getElementById("loadBackground").style.display = "none";
+			  document.getElementById("gameContainer").style.display = "block";
+			}
+		</script>
+		
+    </body>
+</html>

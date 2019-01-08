@@ -1,0 +1,109 @@
+body {
+	background-color:#8EA9C7;
+}
+
+#gameContainer
+{
+	background-color:#8EA9C7;
+	display: none;
+}
+
+
+#gameCanvas
+{
+    outline:1px solid darkgrey;
+    width:100%;
+    height:100%;
+    margin: 0px;
+    border: 0;
+    overflow: hidden; 
+    display: block;  
+    position: absolute; 
+    top: 0px;
+    left: 0px;
+}
+
+
+
+#buttons
+{
+    width:100%;
+    height:30%;
+    margin: 0px;
+    border: 0;
+    overflow: hidden; 
+    display: block;  
+    position: absolute; 
+    bottom: 10px;
+    left: 0px;
+    z.index: 2;
+}
+
+#left
+{
+    opacity: 0.2;
+    position: absolute;
+    left:2%;
+    height:100%;
+    width: 10%;
+}
+
+#right
+{
+    opacity: 0.2;
+    position: absolute;
+    left:14%;
+    height:100%;
+    width: 10%;
+}
+
+#jump
+{
+    opacity: 0.2;
+    position: absolute;
+    left: 76%;
+    height:100%;
+    width: 10%;
+}
+
+#punch
+{
+    opacity: 0.2;
+    position: absolute;
+    left: 88%;
+    height:100%;
+    width: 10%;
+}
+
+#loadingMessage
+{
+    position:absolute;
+    top:100px;
+    left:100px;
+    z-index:100;
+    font-size:50px;
+}
+
+#loadBackground {
+	width: 100%;
+	height: 100%;
+	background-color:#8EA9C7;
+}
+
+#loader {
+  position: absolute;
+  left: 37%;
+  top: 20%;
+  border: 70px solid #DA5032; 
+  border-top: 80px solid #000000;
+  border-bottom: 80px solid #000000;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
