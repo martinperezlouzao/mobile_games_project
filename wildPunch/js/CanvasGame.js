@@ -25,7 +25,7 @@ class CanvasGame
 		drawLifeP1();
 		drawLifeP2();
 
-		move();
+		
 		
 			
         requestAnimationFrame(this.playGameLoop.bind(this));
@@ -86,7 +86,12 @@ class CanvasGame
             {
                 objects[i].render();
             }
-        }
+		}
+		
+		if(client_server == true){
+			socket.send(objects[FIRSTPLAYER].getCentreX() + ";" + objects[FIRSTPLAYER].getCentreY() + ";"+ objects[SECONDPLAYER].getCentreX() + ";" + objects[SECONDPLAYER].getCentreY() + ";" + objects[FIRSTPLAYER].getDirection() + ";" + parseFloat(Math.round(objects[FIRSTPLAYER].getLife() * 100) / 100).toFixed(1) + ";" + parseFloat(Math.round(objects[SECONDPLAYER].getLife() * 100) / 100).toFixed(1));
+		}
+		
     }
 
     collisionDetection()
@@ -94,22 +99,3 @@ class CanvasGame
     }
 }
 
-function move(){
-	if(rightPressed) {
-		objects[FIRSTPLAYER].setX(objects[FIRSTPLAYER].PLAYER_SPEED);
-		objects[FIRSTPLAYER].setDirection(RIGHT);
-	}
-	else if(leftPressed) {
-		objects[FIRSTPLAYER].setX(-objects[FIRSTPLAYER].PLAYER_SPEED);
-		objects[FIRSTPLAYER].setDirection(LEFT);
-	}
-	
-	if(rightPressed2) {
-		objects[SECONDPLAYER].setX(objects[SECONDPLAYER].PLAYER_SPEED);
-		objects[SECONDPLAYER].setDirection(RIGHT);
-	}
-	else if(leftPressed2) {
-		objects[SECONDPLAYER].setX(-objects[SECONDPLAYER].PLAYER_SPEED);
-		objects[SECONDPLAYER].setDirection(LEFT);
-	}
-}

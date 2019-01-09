@@ -6,27 +6,34 @@ let objects = [];
 
 let seguir = 1;
 
+let wsUri = null;
+let socket = null;
 
 window.addEventListener("load", onAllAssetsLoaded);          
 document.addEventListener("deviceready", onAllAssetsLoaded); 
 
-document.write("<div id='loadingMessage'>Loading...</div>");
 function onAllAssetsLoaded()
 {
-    document.getElementById('loadingMessage').style.visibility = "hidden";
 
     canvas = document.getElementById("gameCanvas");
     ctx = canvas.getContext("2d");
 
-    /*var ratio = window.devicePixelRatio || 1;
-    canvas.width = screen.width * ratio;
-	canvas.height = screen.height * ratio;*/
-
 	canvas.width = 1920;
-	canvas.height = 1080;
+    canvas.height = 1080;
+
+    var ip = prompt("Please type IP of the server:", "192.168.137.1");
+
+    wsUri = "ws://" + ip + ":5001";
+    
+    socket = new WebSocket(wsUri);
 
 
-    playGame(); 
+	socket.onopen = event => {
+        console.log("Socket connected successfully...")
+        playGame(); 
+	  }
+
+    
 }
 
 

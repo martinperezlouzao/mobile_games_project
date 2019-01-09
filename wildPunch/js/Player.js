@@ -184,7 +184,7 @@ class Player extends GameObject
 	}
 	
 	setLife(n){
-		this.life += n;
+		this.life = n;
 	}
 	
     setDirection(newDirection)
@@ -203,6 +203,14 @@ class Player extends GameObject
 	
 	setY(n){
 		this.centreY += n;
+	}
+
+	setXGuest(n){
+		this.centreX = n;
+	}
+	
+	setYGuest(n){
+		this.centreY = n;
 	}
 	
 	setJumping(n){
